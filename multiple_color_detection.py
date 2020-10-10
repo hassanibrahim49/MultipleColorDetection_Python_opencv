@@ -2,7 +2,7 @@
 import numpy as np
 import cv2
 
-Flags = {'Red_Era': 0, 'Green_Era': 0, 'Blue_Era': 0, 'Yellow_Era': 0, 'Orange_Era': 0}
+Flags = {'Red_Flag': 0, 'Green_Flag': 0, 'Blue_Flag': 0, 'Yellow_Flag': 0, 'Orange_Flag': 0}
 
 hsv_color_boundaries = [
     ([0, 100, 100], [7, 255, 255]),  # Red
@@ -88,9 +88,8 @@ while True:
             x, y, w, h = cv2.boundingRect(contour)
             cv2.rectangle(imageFrame, (x, y), (x + w, y + h), (0, 255, 0), 2)
             cv2.putText(imageFrame, "Red", (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255))
-            Flags['Red_Era'] = 1
-            flag = 'red'
-            print(flag)
+            Flags['Red_Flag'] = 1
+            print('red')
 
     # Creating contour to track orange color
     _, contours, hierarchy = cv2.findContours(orange_mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -100,9 +99,8 @@ while True:
             x, y, w, h = cv2.boundingRect(contour)
             imageFrame = cv2.rectangle(imageFrame, (x, y), (x + w, y + h), (207, 104, 0), 2)
             cv2.putText(imageFrame, "Orange", (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (207, 104, 0))
-            Flags['Orange_Era'] = 1
-            flag = 'Orange'
-            print(flag)
+            Flags['Orange_Flag'] = 1
+            print('Orange')
 
     # Creating contour to track yellow color
     _, contours, hierarchy = cv2.findContours(yellow_mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -112,9 +110,8 @@ while True:
             x, y, w, h = cv2.boundingRect(contour)
             imageFrame = cv2.rectangle(imageFrame, (x, y), (x + w, y + h), (207, 200, 0), 2)
             cv2.putText(imageFrame, "Yellow", (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (207, 200, 0))
-            Flags['Yellow_Era'] = 1
-            flag = 'Yellow'
-            print(flag)
+            Flags['Yellow_Flag'] = 1
+            print('Yellow')
 
     # Creating contour to track green color
     _, contours, hierarchy = cv2.findContours(green_mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -125,9 +122,8 @@ while True:
             x, y, w, h = cv2.boundingRect(contour)
             imageFrame = cv2.rectangle(imageFrame, (x, y), (x + w, y + h), (0, 255, 0), 2)
             cv2.putText(imageFrame, "Green", (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 0))
-            Flags['Green_Era'] = 1
-            flag = 'Green'
-            print(flag)
+            Flags['Green_Flag'] = 1
+            print('Green')
 
     # Creating contour to track blue color
     _, contours, hierarchy = cv2.findContours(blue_mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -137,9 +133,8 @@ while True:
             x, y, w, h = cv2.boundingRect(contour)
             imageFrame = cv2.rectangle(imageFrame, (x, y), (x + w, y + h), (255, 0, 0), 2)
             cv2.putText(imageFrame, "Blue", (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 0, 0))
-            Flags['Blue_Era'] = 1
-            flag = 'Blue'
-            print(flag)
+            Flags['Blue_Flag'] = 1
+            print('Blue')
             
     """*********************************************************************************"""
     # Program Termination
